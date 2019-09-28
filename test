@@ -1,1 +1,129 @@
-asdfasd
+컴퓨터 프로그래밍 II 퀴즈 1
+1.C언어의 특징과 장점을 적으시오.
+특징:C언어는 확장성이 좋고, 표현법이 다양해서 자기만의 표현법으로 개발이 가능하다.
+장점:실행속도가 빠르다.
+2.C언어의 활용에 대해 적으시오.
+게임같은것을 개발할때 사용된다.
+3.두 실수를 메모리에 초기화 더하고 화면에 출력하시오.
+#include<stdio.h>
+int main() {
+	float	a, b;
+		a = 1.2,b = 2.4;
+	printf("%f", a + b);
+	return 0;
+}
+4.두 실수를 키보드로 받고 더해서 화면에 축력하시오.
+#include<stdio.h>
+int main() {
+	float a, b;
+	scanf_s
+	("%f %f ", &a, &b);
+	printf("%f\n", a + b);
+	return 0;
+}
+5.두 실수를 메모리에 저장하고 함수 add()를 활용하여 더한 결과를 리턴 받아 화면에 출력하시오.
+#include<stdio.h>
+float add(float a, float b) {
+	return a + b;
+}
+int main() {
+	float a = 2.2, b = 4.4;
+	printf("%f", add(a, b));
+}
+6.my.txt에 33과 22가 들어 있다. 이를 읽고 더하고 결과를 출력하시오.
+#include<stdio.h>
+
+int main() {
+
+	int a, b, c;
+
+	FILE* fp;
+
+	fp = fopen("my.txt", "r");
+
+	fscanf(fp, "%d%d", &a, &b);
+
+	fclose(fp);
+
+	c = a + b;
+
+	printf("%d\n", c);
+
+}
+7.3개의 과일을 {"Banana","Orange","Kiwi"} 초기화 하고 화면에 출력하시오.
+#include<stdio.h>
+int main() {
+	char v[3][10] = { {"Banana"},{"Orange"},{"Kiwi"} };
+	int i;
+	for (i = 0; i < 3; i++) {
+		printf("%s\n", v[i]);
+	}
+
+}
+8.곱셈용 명령창 계산기를 구현하시오. 매개변수가 2개 이하면 프로그램이 종료 된다.
+예) mul 10 * 2 결과) 20
+#include<stdio.h>
+
+#include<stdlib.h>
+
+int main(int n, char* v[]) {
+
+	int a, b, c;
+
+	if (n < 4) {
+
+		printf("매개변수가 모자라요.\n");
+
+		exit(0);
+
+	}
+
+	a = atoi(v[1]);
+
+	b = atoi(v[3]);
+
+	switch (v[2][0]) {
+
+	case '*': c = a * b; break;
+
+	default: break;
+
+	}
+
+	printf("%d\n", c);
+
+}
+9.두 명의 {이름,나이,이메일}을 구조체 배열에 초기화하고 화면에 출력하시오.
+#include<stdio.h>
+struct user
+{
+	char n[80];
+	int a;
+	char e[80];
+}; 
+int main()
+{
+	struct user we[2] = { {"ktie",21,"aa233@naver.com"},{"jkim",23,"a3a123@daum.net"} };
+	printf("%s %d %s \n", we[0].n, we[0].a, we[0].e);
+	printf("%s %d %s \n", we[1].n, we[1].a, we[1].e);
+
+}
+10.두 명의 {이름과 나이 그리고 이메일}을 구조체 배열에 초기화하고, 함수 pr()에 포인터 전달하고 화면에 출력 하시오.
+#include<stdio.h>
+struct user {
+	char n[80];
+	int a;
+	char e[80];
+
+};
+void pr(struct user* p)
+{
+	printf("%s %d %s\n", p->n, p->a, p->e);
+	++p;
+	printf("%s %d %s\n", p->n, p->a, p->e);
+}
+int main() {
+	struct user we[2] = { {"ktie",21,"aa233@naver.com"},{"jkim",23,"a3a123@daum.net"} };
+	pr(we);
+	return 0;
+}
